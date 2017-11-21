@@ -1,4 +1,6 @@
-# Analiza podatkov s programom R, 2017/18
+## Analiza sklenitev zakonskih zvez v Sloveniji
+
+Avtor: Tina Bertok
 
 Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
