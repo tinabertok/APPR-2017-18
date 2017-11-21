@@ -6,7 +6,7 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 ## Tematika
 
-V svojem projektu se bom osredotočila na sklenitve zakonskih zvez v Sloveniji. Analizirala bom starost ženina in neveste, njun zakonski stan ter datum poroke (ugotoviti bom poskušala v katerem mesecu se poroča največ ljudi). Podrobneje si bom ogledala tudi število porok glede na posamezne slovenske regije in to v nadaljnih fazah vizualizirala s pomočjo zemljevida. 
+V svojem projektu se bom osredotočila na sklenitve zakonskih zvez v Sloveniji. Analizirala bom starost ženina in neveste, njun zakonski stan ter datum poroke (ugotoviti bom poskušala v katerem mesecu se poroča največ ljudi). Podrobneje si bom ogledala tudi število porok glede na posamezne slovenske regije in to v nadaljnih fazah vizualizirala s pomočjo zemljevida. Kot dodatno spremenljivko bi lahko uporabila tudi istospolne partnerske skupnosti.
 
 Za vir podatkov bom uporabila OPSI in SURS.
 
