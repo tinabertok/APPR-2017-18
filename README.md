@@ -11,6 +11,23 @@ V svojem projektu se bom osredotočila na sklenitve zakonskih zvez v Sloveniji. 
 Za vir podatkov bom uporabila OPSI in SURS.
 
 
+
+Tabele:
+
+1.tabela : STAROST OB SKLENITVI ZAKONSKE ZVEZE (starost ženina, starost neveste, leto)
+
+2.tabela : DATUM POROKE (število porok, mesec, leto)
+
+3.tabela : ZAKONSKI STAN PRED SKLENITVIJO ZAKONSKE ZVEZE (zakonski stan ženina, zakonski stan neveste, leto)
+
+4.tabela : REGIJE SKLENITEV ZAKONSKIH ZVEZ (število porok, regija, leto)
+
+5.tabela : ISTOSPOLNE PARTNERSKE SKUPNOSTI (število istospolnih partnerskih skupnosti, število sklenitev zakonske zveze, leto)
+
+Plan dela:
+-razvrščanje podatkov, primerjanje vplivov, ki jih imajo spremenljivke druga na drugo (kako so se z leti spreminjala števila porok, pri kakšni starosti so se poročali včasih in pri kakšni zdaj, v katerih mesecih je največ porok, ali se ločeni ljudje še poročajo...)
+-predikcija : napovedala bom, kako bo s trendom porok v prihodnosti, ali se bo starost ženina in neveste povišala ali znižala...
+
 ## Program
 
 Glavni program in poročilo se nahajata v datoteki `projekt.Rmd`. Ko ga prevedemo,
