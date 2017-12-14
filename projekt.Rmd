@@ -7,7 +7,7 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-runtime: shiny
+#tu smo pobrisali shiny da nam ne dela problemov
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE}
