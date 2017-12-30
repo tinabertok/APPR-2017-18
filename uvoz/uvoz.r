@@ -5,6 +5,7 @@ sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
 
 # Funkcija, ki uvozi podatke iz datoteke istospolne_partnerske_skupnosti.csv
+
 uvozi.istospolne <- function() {
   data <- read_csv2("podatki/Istospolne_partnerske_skupnosti.csv", skip = 2,
                     locale = locale(encoding = "Windows-1250"), n_max = 2) %>%
@@ -14,7 +15,7 @@ uvozi.istospolne <- function() {
   return(data)
 }
 
-# Zapišimo podatke v razpredelnico obcine
+# Zapišimo podatke v razpredelnico istospolne
 istospolne <- uvozi.istospolne()
 
 
@@ -29,7 +30,7 @@ uvozi.meseci <- function() {
   return(data)
 }
 
-# Zapišimo podatke v razpredelnico obcine
+# Zapišimo podatke v razpredelnico meseci
 meseci <- uvozi.meseci()
 
 
