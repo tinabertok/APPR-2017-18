@@ -4,6 +4,7 @@ sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
 #ISTOSPOLNE PARTNERSKE SKUPNOSTI
 
+
 # Funkcija, ki uvozi podatke iz datoteke istospolne_partnerske_skupnosti.csv
 
 uvozi.istospolne <- function() {
@@ -77,16 +78,10 @@ starost <- uvozi.starost()
 
 uvozi.stan <- function() {
   data <- read_csv2("podatki/Zakonski_stan.csv", skip = 3,
-                    locale = locale(encoding = "Windows-1250"), n_max = 13)
-  
-  data = as.data.frame(t(data))
-  colnames(data) = sapply(data[1,], toString)
-  #vzemi prvo vrstico in to spremeni v string in daj za imena stolpcev
-  data = data[rownames(data) != c("X1"),]
-  #izbriši vrstico X1
-  data$leto = rownames(data)
-  rownames(data) = 1:(dim(data)[1])
-  
+                    locale = locale(encoding = "Windows-1250"), n_max = 13) %>%
+    fill(1) %>% drop_na(2)
+  data <- melt(data)
+  colnames(data) <- c("Stan zenina", "Stan neveste", "leto", "stevilo")
   return(data)
 }
 
