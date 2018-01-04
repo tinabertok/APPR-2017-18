@@ -32,25 +32,37 @@ source("uvoz/uvoz.r", encoding = "UTF-8")
 
 Uvozila sem podatke o porokah v obliki CSV s statističnega urada. Podatke imamo v petih razpredelnicah v obliki *tidy data*.
 
-1. `druzine` - podatki o družinah za vsako občino
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `velikost.druzine` - spremenljivka: število otrok v družini (število: 1, 2, 3 ali 4, kjer zadnja vrednost pomeni 4 ali več),
-  - `stevilo.druzin` - meritev: število družin z ustreznim številom otrok v ustrezni občini (število).
+1. `istospolne` - podatki o istospolnih partnerskih skupnostih
+  - `spol` - spremenljivka: partnerska skupnost med dvema moškima ali med dvema ženskama (neurejen faktor),
+  - `leto` - spremenljivka: leto v katerem so bili podatki izmerjeni,
+  - `stevilo` - meritev: število sklenjenih istospolnih skupnosti 
 
-2. `obcine` - podatki o občinah
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `povrsina` - meritev: površina občine v km$^2$ (število),
-  - `prebivalci` - meritev: prebivalstvo občine (število),
-  - `gostota` - meritev: število prebivalcev na km$^2$ (število),
-  - `naselja` - meritev: število naselij v občini (število),
-  - `ustanovitev` - meritev: leto ustanovitve občine (število),
-  - `pokrajina` - meritev: pokrajina, ki ji občina pripada (neurejen faktor),
-  - `regija` - meritev: regija, ki ji občina pripada (neurejen faktor),
-  - `odcepitev` - meritev: podatki o občinah, od katerih se je občina odcepila (besedilo).
+2. `meseci` - podatki o porokah v različnih mesecih
+  - `leto` - spremenljivka: leto v katerem so bili podatki izmerjeni,
+  - `mesec` - spremenljivka: mesec, v katerem so se ljudje poročili,
+  - `stevilo` - meritev: število porok v posameznem mesecu.
+  
+3. `regije` - podatki o porokah po slovenskih regijah
+  - `leto` - spremenljivka: leto v katerem so bili podatki izmerjeni,
+  - `regija` - meritev: število porok sklenjenih v posamezni regiji.
+  
+4. `starost` - podatki o starosti ženina in neveste
+  - `leto` - spremenljivka: leto v katerem so bili podatki izmerjeni,
+  - `starost zenina` - meritev: starost ženina ob poroki,
+  - `starost neveste` - meritev: starost neveste ob poroki.
+  
+5. `stan` - podatki o zakonskem stanu ženina in neveste pred poroko
+ 
+  - `stan zenina` - spremenljivka: zakonski stan ženina pred poroko(samski, vdovec ali razvezan),
+  - `stan neveste` - spremenljivka: zakonski stan neveste pred poroko(samska, vdova ali razvezana).
+  - `leto` - spremenljivka: leto v katerem so bili podatki izmerjeni,
+  - `stevilo` - meritev: število porok.
+  
+  
+ 
+**Opomba**: Problem z zapisom decimalne pike pri starosti ženina in neveste. 
 
-**Opomba**: da bi razpredelnica `obcine` res bila v obliki *tidy data*, bi morali odstraniti stolpec `gostota` (saj je izpeljan iz stolpcev `povrsina` in `prebivalci`), podatke o pokrajinah pa bi morali premakniti v drugo razpredelnico, saj nekatere občine pripadajo dvema pokrajinama. Podobno bi morali narediti tudi s stolpcem `odcepitev`.
-
-Spodnji graf prikazuje porazdelitev števila naselij v občinah.
+Spodnji graf prikazuje 
 
 ```{r histogram, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Histogram števila naselij v občinah'}
 ggplot(obcine, aes(x = naselja)) + geom_histogram() +
