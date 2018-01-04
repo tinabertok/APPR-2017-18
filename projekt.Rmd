@@ -21,8 +21,7 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 # Izbira teme
 
-Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
-
+V svojem projektu se bom osredotočila na sklenitve zakonskih zvez v Sloveniji. Analizirala bom starost ženina in neveste, njun zakonski stan ter datum poroke (ugotoviti bom poskušala v katerem mesecu se poroča največ ljudi). Podrobneje si bom ogledala tudi število porok glede na posamezne slovenske regije in to v nadaljnih fazah vizualizirala s pomočjo zemljevida. Kot dodatno spremenljivko bi lahko uporabila tudi istospolne partnerske skupnosti.
 ***
 
 # Obdelava, uvoz in čiščenje podatkov
@@ -31,8 +30,7 @@ Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
 source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
 
-Uvozili smo podatke o občinah v obliki CSV s statističnega urada ter v obliki HTML
-z Wikipedije. Podatke imamo v dveh razpredelnicah v obliki *tidy data*.
+Uvozila sem podatke o porokah v obliki CSV s statističnega urada. Podatke imamo v petih razpredelnicah v obliki *tidy data*.
 
 1. `druzine` - podatki o družinah za vsako občino
   - `obcina` - spremenljivka: ime občine (neurejen faktor),

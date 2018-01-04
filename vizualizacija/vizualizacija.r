@@ -2,8 +2,10 @@
 
 library(ggplot2)
 library(dplyr)
+library(reshape2)
 
-graf1 <- ggplot(istospolne) + aes(x=leto, y = stevilo, fill = stevilo) + geom_col()
+
+graf1 <- ggplot(istospolne) + aes(x=leto, y = stevilo, fill = stevilo) + geom_bar(position = "dodge")
 print(graf1)
 
 
