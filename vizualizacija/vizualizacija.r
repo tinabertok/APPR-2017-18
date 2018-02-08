@@ -5,12 +5,21 @@ library(dplyr)
 library(reshape2)
 
 
-graf1 <- ggplot(istospolne) + aes(x=leto, y = stevilo, fill = stevilo) + geom_bar(position = "dodge")
+graf1 <- ggplot(data = istospolne, aes(x=leto, y = stevilo, group = stevilo,  fill = stevilo))
+graf1 <- graf1 + geom_bar(stat = "identity", width = 0.5, position = "dodge")
+# graf1 <- graf1 + facet_grid(. ~ Year)
+# graf1 <- graf1 + theme_bw()
+
+
 print(graf1)
 
 
 
 
+
+#ZEMLJEVID
+library(sp)
+library(maptools)
 
 
 
