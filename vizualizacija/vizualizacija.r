@@ -4,27 +4,7 @@ library(ggplot2)
 library(dplyr)
 library(reshape2)
 
-
-graf1 <- ggplot(data = istospolne, aes(x=leto, y = stevilo, group = spol, fill=spol))
-graf1 <- graf1 + geom_bar(stat = "identity", width = 0.5, position = "dodge")
-graf1 <- graf1 + scale_x_discrete(aes(x=leto, y = stevilo), limits=2006:2016)
-# graf1 <- graf1 + facet_grid(. ~ Year)
-# graf1 <- graf1 + theme_bw()
-
-
-print(graf1)
-
-
-
-#ZEMLJEVID
-library(sp)
-library(maptools)
-library(digest)
-gpclibPermit()
-
-
-
-# Izračunamo povprečno število porok v posamezniregiji
+# Izračunamo povprečno število porok v posamezni regiji
 imena_regij = colnames(regije)
 #sapply(m,function(x){ mean(meseci[meseci$mesec == x,"stevilo"])})
 povprecja = sapply(imena_regij,function(x){ round(mean(as.numeric(regije[,x])))})
@@ -32,16 +12,29 @@ tabela_povprecij_regij = data.frame(regija=imena_regij, povprecje = povprecja)
 tabela_povprecij_regij = tabela_povprecij_regij[1:12,]
 
 
-
-
-
 # Izračunamo povprečno število porok v posameznem mesecu
 imena = unique(meseci$mesec)
 #sapply(m,function(x){ mean(meseci[meseci$mesec == x,"stevilo"])})
 povprecja = sapply(imena,function(x){ round(mean(meseci[meseci$mesec == x,"stevilo"]))})
-tabela_povprecij = data.frame(mesec=imena, povprecje = povprecja)
+tabela_povprecij_meseci = data.frame(mesec=imena, povprecje = povprecja)
+
+#Prvi graf: Istosplone poroke 
+
+graf1 <- ggplot(istospolne) + aes(x = factor(leto), y = stevilo, fill = spol) +
+  geom_col(position = "dodge")
 
 
+#Drugi graf : Število porok po mesecih
+
+graf2 <- ggplot(tabela_povprecij_meseci) + aes(x = mesec, y = povprecje) + \ geom_line()
+
+graf3 <- lines(x = mesec, y = povprecje , type=l)
+
+#ZEMLJEVID
+library(sp)
+library(maptools)
+library(digest)
+gpclibPermit()
 
 # Uvozimo zemljevid.
 zemljevid <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2.8/shp/SVN_adm_shp.zip",
