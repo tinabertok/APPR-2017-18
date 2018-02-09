@@ -26,9 +26,16 @@ graf1 <- ggplot(istospolne) + aes(x = factor(leto), y = stevilo, fill = spol) +
 
 #Drugi graf : Število porok po mesecih
 
-graf2 <- ggplot(tabela_povprecij_meseci) + aes(x = mesec, y = povprecje) + \ geom_line()
+graf2 <- ggplot(tabela_povprecij_meseci) + aes(x = mesec, y = povprecje)  +
+  geom_col()
 
-graf3 <- lines(x = mesec, y = povprecje , type=l)
+#Tretji graf: Starost ženina in neveste
+
+ graf3 <- ggplot(starost) + aes( x = leto, y =factor("Povprecna staorst zenina ob poroki"))
+ 
+
+
+
 
 #ZEMLJEVID
 library(sp)
