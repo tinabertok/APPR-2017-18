@@ -47,11 +47,10 @@ gpclibPermit()
 zemljevid <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2.8/shp/SVN_adm_shp.zip",
                              "SVN_adm1", encoding = "utf-8") %>% pretvori.zemljevid()
 
-
 levels(zemljevid$NAME_1)[levels(zemljevid$NAME_1) %in%
-                           c("Notranjsko-kraška",
-                             "Spodnjeposavska", "Koroška", "Goriška", "Obalno-kraška")] <- c("Primorsko-notranjska",
-                                                                                             "Posavska", "Koroska", "Goriska", "Obalno-kraska")
+                           c("Notranjsko-kraška", "Spodnjeposavska")] <- c("Primorsko-notranjska",
+                                                                           "Posavska")
+
 
 
 zemljevid.regije <- ggplot() +
