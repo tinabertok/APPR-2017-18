@@ -54,7 +54,7 @@ levels(zemljevid$NAME_1)[levels(zemljevid$NAME_1) %in%
 
 
 zemljevid.regije <- ggplot() +
-  geom_polygon(data = tabela_povprecij_regij %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
+  geom_polygon(data = tabela_povprecij_regij %>% right_join(zemljevid, by = c("regija" = "NAME_1")), color = "black",
                aes(x = long, y = lat, group = group, fill = povprecje))+
   xlab("") + ylab("") + ggtitle("Število porok po slovenskih regijah")
 
