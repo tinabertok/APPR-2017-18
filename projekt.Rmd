@@ -86,11 +86,25 @@ Prvi graf prikazuje kako se je število istosplonih porok spreminjalo skozi leta
 Presenetil pa me je podatek, da je skoraj ves čas višje število sklenjenih zakonskih zvez med moškima, kot med ženskama saj bi sama trdila ravno obratno. 
 print(graf1)
 
-Drugi graf nam prikazuje število porok po mesecih. Ker bi bilo drugače podatkov za vsa leta preveč, sem se odločila narediti še eno tabelo v kateri sem izračunala povprečje porok za vsak mesec in nato na podlagi te tabele narisala graf. Največ ljudi se poroči...
+Drugi graf nam prikazuje število porok po mesecih. Ker bi bilo drugače podatkov za vsa leta preveč, sem se odločila narediti še eno tabelo v kateri sem izračunala povprečje porok za vsak mesec in nato na podlagi te tabele narisala graf. Največ ljudi se poroči prav okoli meseca ljubezni, to je maja.
+
+print(graf2)
+
+Pri tretjem grafu opazujemo spreminjanje starosti ženina in neveste skozi leta. Opazimo lahko, da so se v starih časih poročali bolj mladi, z leti pa se je ta starost povišala. Zanimivo pa je, da razlika let med ženinom in nevesto skozi vsa leta ostaja enaka, to je približno 3 leta. 
+
+print(graf3)
 
 
+Zadnje dva grafa nam prikazujeta poroke med ženinom in nevesto v različnih zakonskih stanih pred poroko. Odločila sem se primerjati dve najbolj oddaljeni leti, to je 1985 in 2016, ter ugotovila, da v obeh zelo prevladujejo poroke med samskima partnerjema. 
 
-Spodnji zemljevid prikazuje povprečno velikost družine za vsako občino.
+print(graf4)
+print(graf5)
+
+
+Nazadnje sem naredila še zemljevid števila porok glede na slovenske regije. Tudi za ta zemljevid sem naredila posebno tabelo povprečij porok po slovenskih regijah skozi vsa leta. Nazadnje sem za lažjo predstavo dodala še par večjih slovenskih mest. Iz zemljevida je razvidno, da se največ ljudi poroči prav v Osrednjeslovenski in Gorenjski regiji.
+
+print(zemljevid.regije)
+
 
 ```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid povprečnega števila otrok v družini'}
 ggplot() + geom_polygon(data = left_join(zemljevid, povprecja, by = c("OB_UIME" = "obcina")),
@@ -107,16 +121,13 @@ ggplot() + geom_polygon(data = left_join(zemljevid, povprecja, by = c("OB_UIME" 
 source("analiza/analiza.r", encoding = "UTF-8")
 ```
 
-Spodnji graf prikazuje povezavo med številom naselij in površino občine.
+
+
+
+
 
 ```{r graf, echo=FALSE, fig.align='center', fig.cap='Povezava med številom naselij in površino občine'}
-ggplot(inner_join(obcine, data.frame(obcina = names(skupine),
-                                     skupina = factor(skupine)), by = "obcina")
-, aes(x = povrsina, y = naselja, color = skupina, size = prebivalci/1000)) + geom_point() +
-  ggtitle("Število naselij glede na površino občine") +
-  xlab(expression("Površina (km"^2 * ")")) + ylab("Št. naselij") +
-  guides(color = guide_legend(title = "Skupina"),
-         size = guide_legend(title = "Prebivalci (* 1000)"))
+
 ```
 
 ***
