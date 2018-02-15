@@ -60,7 +60,11 @@ Uvozila sem podatke o porokah v obliki CSV s statističnega urada. Podatke imamo
   
   
  
-**Opomba**: Problem z zapisom decimalne pike pri starosti ženina in neveste. 
+**Opomba**: Problem sem imela z zapisom decimalne pike pri starosti ženina in nevest, a sem ga rešila z preoblikovanjem osnovne datoteke. 
+
+
+
+
 
 Spodnji graf prikazuje 
 
@@ -76,6 +80,15 @@ ggplot(obcine, aes(x = naselja)) + geom_histogram() +
 ```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE}
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 ```
+V fazi vizualizacije sem se odločila narisati 5 grafov in zemljevid. Podatkov je manj, a so ti po mojem mnenju bolj relavantni. 
+
+Prvi graf prikazuje kako se je število istosplonih porok spreminjalo skozi leta. KOt lahko vidimo, so podatki dostopni šele od leta 2006 naprej, saj smo takrat sprejeli zakon, ki dovoljuje poročanje istospolnih parov. Število zakonov z leti narašča, kar je pričakovano, saj je to v zadnjih letih postalo nekaj naravnega. 
+Presenetil pa me je podatek, da je skoraj ves čas višje število sklenjenih zakonskih zvez med moškima, kot med ženskama saj bi sama trdila ravno obratno. 
+print(graf1)
+
+Drugi graf nam prikazuje število porok po mesecih. Ker bi bilo drugače podatkov za vsa leta preveč, sem se odločila narediti še eno tabelo v kateri sem izračunala povprečje porok za vsak mesec in nato na podlagi te tabele narisala graf. Največ ljudi se poroči...
+
+
 
 Spodnji zemljevid prikazuje povprečno velikost družine za vsako občino.
 

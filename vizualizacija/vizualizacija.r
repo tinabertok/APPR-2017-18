@@ -18,6 +18,8 @@ imena = unique(meseci$mesec)
 povprecja = sapply(imena,function(x){ round(mean(meseci[meseci$mesec == x,"stevilo"]))})
 tabela_povprecij_meseci = data.frame(mesec=imena, povprecje = povprecja)
 
+# a damo namesto data.frame(mesec = {Jan, Feb, Mar, Apr, Maj, Jun, Jul, AVg, Sep, Okt, Nov, Dec}, povprecje = povprecja)
+
 #Prvi graf: Istosplone poroke 
 
 graf1 <- ggplot(istospolne) + aes(x = factor(leto), y = stevilo, fill = spol) +
@@ -29,12 +31,23 @@ graf1 <- ggplot(istospolne) + aes(x = factor(leto), y = stevilo, fill = spol) +
 graf2 <- ggplot(tabela_povprecij_meseci) + aes(x = mesec, y = povprecje)  +
   geom_col()
 
+# ne dela geom_line()
+
 #Tretji graf: Starost ženina in neveste
 
  graf3 <- ggplot(starost) + aes( x = leto, y =factor("Povprecna staorst zenina ob poroki"))
  
 
+#Četrti graf : Zakonski stan ženina in neveste ( lahko dva grafa, en za leto 1985 in en za 2016)
+ 
+graf4 <- ggplot(stan) + aes(x = factor(leto), y = stevilo, fill = Stan zenina) +
+   geom_col(position = "dodge") 
 
+#kaj moramo tu zapisati namesto stan zenina?
+
+ 
+ 
+ # Peti graf : Primerjava starosti in stana ženina in neveste
 
 
 #ZEMLJEVID
