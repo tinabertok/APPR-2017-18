@@ -30,24 +30,29 @@ graf1 <- ggplot(istospolne) + aes(x = factor(leto), y = stevilo, fill = spol) +
 
 graf2 <- ggplot(tabela_povprecij_meseci) + aes(x = mesec, y = povprecje, group = 1)  +
   geom_line()+ scale_x_discrete(breaks=tabela_povprecij_meseci$mesec,
-                                labels=c("Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Avg", "Sep", "Okt", "Nov", "Dec"))
+                                labels=c("Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Avg", "Sep", "Okt", "Nov", "Dec")) +
+  labs(x="Mesec", y = "Povprečno število porok")
 
 
 #Tretji graf: Starost ženina in neveste
 
  graf3 <- ggplot(starost)  + geom_line(aes( x = leto, y = `Povprecna starost zenina ob poroki`, color='ženin')) +
     geom_line(aes( x = leto, y = `Povprecna starost neveste ob poroki`, color='nevesta')) +
-    scale_colour_manual(name="Starost",values=c("nevesta"="red","ženin"="blue"))
- 
- #y_lab za y os
+    scale_colour_manual(name="Starost",values=c("nevesta"="red","ženin"="blue")) +
+   labs( x = "Leto", y ="Starost")
  
 
-#Četrti graf : Zakonski stan ženina in neveste ( lahko dva grafa, en za leto 1985 in en za 2016)
+
+#Četrti in peti graf : Zakonski stan ženina in neveste 
  
 graf4 <- ggplot(stan[stan$leto==1985,]) + aes(x = factor(leto), y = stevilo, fill = interaction(`Stan neveste`, `Stan zenina`) ,group=interaction(`Stan neveste`, `Stan zenina`)) +
-   geom_col(position = "dodge") 
+   geom_col(position = "dodge") +
+  labs( x = "Leto", y ="Število porok")
 
-#kaj moramo tu zapisati namesto stan zenina?
+
+graf5 <- ggplot(stan[stan$leto==2016,]) + aes(x = factor(leto), y = stevilo, fill = interaction(`Stan neveste`, `Stan zenina`) ,group=interaction(`Stan neveste`, `Stan zenina`)) +
+  geom_col(position = "dodge")  +
+  labs( x = "Leto", y ="Število porok")
 
  
 
@@ -68,7 +73,7 @@ levels(zemljevid$NAME_1)[levels(zemljevid$NAME_1) %in%
                            c("Notranjsko-kraška", "Spodnjeposavska")] <- c("Primorsko-notranjska",
                                                                            "Posavska")
 
-mesta = data.frame(lon = c(14.508333,16), lat = c(46.055556,46.5))
+mesta = data.frame(lon = c(14.508333,15.6455,15.2675,14.366667, 13.733333,15.166667,16.166667,13.643242), lat = c(46.055556,46.557611,46.235833,46.233333,45.55,45.8,46.666667,45.955883))
 
 zemljevid.regije <- ggplot() +
   geom_polygon(data = tabela_povprecij_regij %>% right_join(zemljevid, by = c("regija" = "NAME_1")), color = "black",
