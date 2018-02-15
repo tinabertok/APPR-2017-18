@@ -28,26 +28,30 @@ graf1 <- ggplot(istospolne) + aes(x = factor(leto), y = stevilo, fill = spol) +
 
 #Drugi graf : Število porok po mesecih
 
-graf2 <- ggplot(tabela_povprecij_meseci) + aes(x = mesec, y = povprecje)  +
-  geom_col()
+graf2 <- ggplot(tabela_povprecij_meseci) + aes(x = mesec, y = povprecje, group = 1)  +
+  geom_line()+ scale_x_discrete(breaks=tabela_povprecij_meseci$mesec,
+                                labels=c("Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Avg", "Sep", "Okt", "Nov", "Dec"))
 
-# ne dela geom_line()
 
 #Tretji graf: Starost ženina in neveste
 
- graf3 <- ggplot(starost) + aes( x = leto, y =factor("Povprecna staorst zenina ob poroki"))
+ graf3 <- ggplot(starost)  + geom_line(aes( x = leto, y = `Povprecna starost zenina ob poroki`, color='ženin')) +
+    geom_line(aes( x = leto, y = `Povprecna starost neveste ob poroki`, color='nevesta')) +
+    scale_colour_manual(name="Starost",values=c("nevesta"="red","ženin"="blue"))
+ 
+ #y_lab za y os
  
 
 #Četrti graf : Zakonski stan ženina in neveste ( lahko dva grafa, en za leto 1985 in en za 2016)
  
-graf4 <- ggplot(stan) + aes(x = factor(leto), y = stevilo, fill = Stan zenina) +
+graf4 <- ggplot(stan[stan$leto==1985,]) + aes(x = factor(leto), y = stevilo, fill = interaction(`Stan neveste`, `Stan zenina`) ,group=interaction(`Stan neveste`, `Stan zenina`)) +
    geom_col(position = "dodge") 
 
 #kaj moramo tu zapisati namesto stan zenina?
 
  
- 
- # Peti graf : Primerjava starosti in stana ženina in neveste
+
+
 
 
 #ZEMLJEVID
@@ -64,12 +68,13 @@ levels(zemljevid$NAME_1)[levels(zemljevid$NAME_1) %in%
                            c("Notranjsko-kraška", "Spodnjeposavska")] <- c("Primorsko-notranjska",
                                                                            "Posavska")
 
-
+mesta = data.frame(lon = c(14.508333,16), lat = c(46.055556,46.5))
 
 zemljevid.regije <- ggplot() +
   geom_polygon(data = tabela_povprecij_regij %>% right_join(zemljevid, by = c("regija" = "NAME_1")), color = "black",
                aes(x = long, y = lat, group = group, fill = povprecje))+
-  xlab("") + ylab("") + ggtitle("Število porok po slovenskih regijah")
+  xlab("") + ylab("") + ggtitle("Število porok po slovenskih regijah") +
+  geom_point(data=mesta, aes(x=lon, y=lat), color="black", size=3, alpha=1)
 
 
 
