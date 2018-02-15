@@ -66,13 +66,6 @@ Uvozila sem podatke o porokah v obliki CSV s statističnega urada. Podatke imamo
 
 
 
-Spodnji graf prikazuje 
-
-```{r histogram, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Histogram števila naselij v občinah'}
-ggplot(obcine, aes(x = naselja)) + geom_histogram() +
-  ggtitle("Pogostost števila naselij") + xlab("Število naselij") + ylab("Število občin")
-```
-
 ***
 
 # Analiza in vizualizacija podatkov
@@ -98,6 +91,7 @@ print(graf3)
 Zadnje dva grafa nam prikazujeta poroke med ženinom in nevesto v različnih zakonskih stanih pred poroko. Odločila sem se primerjati dve najbolj oddaljeni leti, to je 1985 in 2016, ter ugotovila, da v obeh zelo prevladujejo poroke med samskima partnerjema. 
 
 print(graf4)
+
 print(graf5)
 
 
@@ -106,11 +100,6 @@ Nazadnje sem naredila še zemljevid števila porok glede na slovenske regije. Tu
 print(zemljevid.regije)
 
 
-```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid povprečnega števila otrok v družini'}
-ggplot() + geom_polygon(data = left_join(zemljevid, povprecja, by = c("OB_UIME" = "obcina")),
-                        aes(x = long, y = lat, group = group, fill = povprecje)) +
-  ggtitle("Povprečno število otrok v družini") + xlab("") + ylab("") +
-  guides(fill = guide_colorbar(title = "Povprečje"))
 ```
 
 ***
