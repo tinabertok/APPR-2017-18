@@ -10,7 +10,7 @@ output:
 runtime: shiny
 ---
 
-```{r setup, echo=FALSE, results='hide', message=FALSE}
+```{r setup, echo=FALSE, results='hide', message=FALSE,warning=FALSE}
 # Če želimo nastaviti pisave v PDF-ju, odkomentiramo
 # in sledimo navodilom v programu.
 #source("fontconfig.r", encoding = "UTF-8")
@@ -102,6 +102,7 @@ print(graf4)
 ```{r graf5, echo=FALSE, message=FALSE, warning=FALSE}
 print(graf5)
 ```
+
 Nazadnje sem naredila še zemljevid števila porok glede na slovenske regije. Tudi za ta zemljevid sem naredila posebno tabelo povprečij porok po slovenskih regijah skozi vsa leta. Nazadnje sem za lažjo predstavo dodala še par večjih slovenskih mest. Iz zemljevida je razvidno, da se največ ljudi poroči prav v Osrednjeslovenski in Gorenjski regiji.
 
 ```{r zemljevid.regije, echo=FALSE, message=FALSE, warning=FALSE}
@@ -132,8 +133,10 @@ Iz zemljevida sem razbrala, da je največje število porok prav v Osrednjesloven
 
 Za konec bi komentirala še graf istospolnih zakonskih zvez. Število teh se v zadnjih letih povečuje, saj so takoimenovane poroke postale manj sporne kot v preteklosti. V prihodnjih letih napovedujem povečanje istospolnih porok, za razliko od zamanjšanja števila porok med različnospolnima partnerjema. 
 
-```{r zemljevid.regije, echo=FALSE, message=FALSE, warning=FALSE}
-print(NAPOVED)
+```{r NAPOVED, echo=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+kable(NAPOVED, "html") %>% kable_styling(full_width = FALSE)
 ```
 
 
