@@ -81,7 +81,7 @@ Presenetil pa me je podatek, da je skoraj ves čas višje število sklenjenih za
 print(graf1)
 ```
 
-Drugi graf nam prikazuje število porok po mesecih. Ker bi bilo drugače podatkov za vsa leta preveč, sem se odločila narediti še eno tabelo v kateri sem izračunala povprečje porok za vsak mesec in nato na podlagi te tabele narisala graf. Največ ljudi se poroči prav okoli meseca ljubezni, to je maja.
+Drugi graf nam prikazuje število porok po mesecih. Ker bi bilo drugače podatkov za vsa leta preveč, sem se odločila narediti še eno tabelo v kateri sem izračunala povprečje porok za vsak mesec in nato na podlagi te tabele narisala graf. Največ ljudi se poroči maja.
 
 ```{r graf2, echo=FALSE, message=FALSE, warning=FALSE}
 print(graf2)
@@ -120,6 +120,18 @@ source("analiza/analiza.r", encoding = "UTF-8")
 ![](https://www.amazingscience.news/wp-content/uploads/2017/11/marriage1.jpg)
 
 Moja opažanja pri svojem projektu so sledeča:
+
+Če se najprej poglobimo v poroke med predstavnikoma različnega spola lahko pridemo do zaključkov, da je z leti porok vedno manj. Število porok je skoraj za polovico manj. Prav tako se ljudje poročajo starejši, povprečna starost ženina je narasla na 35 let, povprečna starost neveste pa na 33 let. To je verjetno posledica daljšega obdobja izobraževanja, pa tudi težje možnosti zaposlitve saj se mladi vedno kasneje odselijo od doma in začenjajo svoje življenje. 
+
+Prav tako je iz primerjave četrtega in petega grafa razvidno, da je bilo pred nekaj desetletji veliko manj porok med že razvezanimi ali vdovelimi posamezniki, saj je bilo to včasih veliko bolj sporno kot danes. Sicer pa še vedno prevladujejo poroke med samskimi ljudmi, ki se v preteklosti še niso poročili. 
+
+Bolj kot zanimivost sem dodala analizo najbolj priljubljenega meseca za poroko, za katerega se je izkazal mesec ljubezni, maj. Presenetljiv pa je podatek, da se veliko ljudi poroči tudi septembra, ko je že bolj hladno. 
+
+
+Iz zemljevida sem razbrala, da je največje število porok prav v Osrednjeslovenski in Gorenjski regiji.To je logično, saj ima Osrednjeslovenska regija največ prebivalcev, po mojem mnenju pa ima Gorenjska tako veliko število porok prav zaradi svojih naravnih lepot in krajev, kot sta na primer Bled in Bohinj.
+
+Za konec bi komentirala še graf istospolnih zakonskih zvez. Število teh se v zadnjih letih povečuje, saj so takoimenovane poroke postale manj sporne kot v preteklosti. V prihodnjih letih napovedujem povečanje istospolnih porok, za razliko od zamanjšanja števila porok med različnospolnima partnerjema. 
+
 
 
 

@@ -1,11 +1,10 @@
 # 4. faza: Analiza podatkov
 
-podatki <- obcine %>% transmute(obcina, povrsina, gostota,
-                                gostota.naselij = naselja/povrsina) %>%
-  left_join(povprecja, by = "obcina")
-row.names(podatki) <- podatki$obcina
-podatki$obcina <- NULL
+#Napoved za število porok
+poroke$Leto <- poroke$Leto %>% as.character() %>% as.numeric()
+LMP <- lm(data = poroke, Poroke ~ Leto)
+P <- predict(LMP, data.frame(Leto = (seq(2017, 2027, 1))))
 
-# Število skupin
-n <- 5
-skupine <- hclust(dist(scale(podatki))) %>% cutree(n)
+
+#SKUPAJ NAPOVED TABELA
+NAPOVED  <- data.frame("Poroke" = as.integer(P), row.names = (2017:2027))
