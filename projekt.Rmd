@@ -119,6 +119,7 @@ source("analiza/analiza.r", encoding = "UTF-8")
 
 ![](https://www.amazingscience.news/wp-content/uploads/2017/11/marriage1.jpg)
 
+Moja opažanja pri svojem projektu so sledeča:
 
 
 
