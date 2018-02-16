@@ -19,9 +19,17 @@ povprecja = sapply(imena,function(x){ round(mean(meseci[meseci$mesec == x,"stevi
 tabela_povprecij_meseci = data.frame(mesec=imena, povprecje = povprecja)
 
 #Izračunamo števila porok v preteklih letih
-leta = colnames(regije)[ncol(regije)]
-vsote = sapply(leta,function(x){ sum(as.numeric(regije[x, ]))})
-tabela_porok = data.frame(leto=leta, poroke = vsote)
+leta = regije$leto
+vsote = sapply(leta,function(x){ 
+  
+  sum(
+    sapply(regije[regije$leto == x,1:12], function(y){
+      as.numeric(levels(y))[y]
+    })
+    ) 
+
+  })
+tabela_porok = data.frame(leto = as.numeric(leta), poroke = vsote)
 
 #Prvi graf: Istosplone poroke 
 
@@ -49,9 +57,11 @@ graf2 <- ggplot(tabela_povprecij_meseci) + aes(x = mesec, y = povprecje, group =
 
 #Četrti in peti graf : Zakonski stan ženina in neveste 
  
-graf4 <- ggplot(stan[stan$leto==1985,]) + aes(x = factor(leto), y = stevilo, fill = interaction(`Stan neveste`, `Stan zenina`), interaction( sep = "."), group=interaction(`Stan neveste`, `Stan zenina`)) +
+graf4 <- ggplot(stan[stan$leto==1985,]) + aes(x = factor(leto), y = stevilo, fill = interaction(`Stan neveste`, `Stan zenina`, sep = "-"), group=interaction(`Stan neveste`, `Stan zenina`, sep = "-")) +
    geom_col(position = "dodge") +
   labs( x = "Leto", y ="Število porok")
+
+graf4$labels$fill <- "Stan"
 
 # interaction sep ne dela
 

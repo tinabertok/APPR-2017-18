@@ -132,7 +132,9 @@ Iz zemljevida sem razbrala, da je največje število porok prav v Osrednjesloven
 
 Za konec bi komentirala še graf istospolnih zakonskih zvez. Število teh se v zadnjih letih povečuje, saj so takoimenovane poroke postale manj sporne kot v preteklosti. V prihodnjih letih napovedujem povečanje istospolnih porok, za razliko od zamanjšanja števila porok med različnospolnima partnerjema. 
 
-
+```{r zemljevid.regije, echo=FALSE, message=FALSE, warning=FALSE}
+print(NAPOVED)
+```
 
 
 

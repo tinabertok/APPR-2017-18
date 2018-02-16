@@ -1,9 +1,8 @@
 # 4. faza: Analiza podatkov
 
 #Napoved za število porok
-poroke$Leto <- poroke$Leto %>% as.character() %>% as.numeric()
-LMP <- lm(data = poroke, Poroke ~ Leto)
-P <- predict(LMP, data.frame(Leto = (seq(2017, 2027, 1))))
+LMP <- lm(data = tabela_porok, poroke ~ leto)
+P <- predict(LMP, data.frame(leto = (seq(2017, 2027, 1))))
 
 
 #SKUPAJ NAPOVED TABELA
