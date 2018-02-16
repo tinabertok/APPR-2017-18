@@ -58,7 +58,6 @@ regije <- uvozi.regije()
 
 #STAROST ŽENINA IN NEVESTE
 
-#Kako popravimo, da bodo decimalne vejice v tabeli?
 
 uvozi.starost <- function() {
   data <- read_csv2("podatki/Starost_zenina_in_neveste.csv", skip = 2,

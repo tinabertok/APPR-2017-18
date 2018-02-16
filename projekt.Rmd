@@ -1,5 +1,5 @@
 ---
-title: "Poročilo pri predmetu Analiza podatkov s programom R"
+title: "Analiza sklenitev zakonskih zvez v Sloveniji"
 author: "Tina Bertok"
 output:
   html_document: default
@@ -23,8 +23,11 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 ![](http://masterdjonline.com/wp-content/uploads/2015/08/bride-groom-wedding-field-photo-1.jpeg)
 
+
+
 V svojem projektu se bom osredotočila na sklenitve zakonskih zvez v Sloveniji. Analizirala bom starost ženina in neveste, njun zakonski stan ter datum poroke (ugotoviti bom poskušala v katerem mesecu se poroča največ ljudi). Podrobneje si bom ogledala tudi število porok glede na posamezne slovenske regije in to v nadaljnih fazah vizualizirala s pomočjo zemljevida. Kot dodatno spremenljivko bi lahko uporabila tudi istospolne partnerske skupnosti.
-***
+
+
 
 # Obdelava, uvoz in čiščenje podatkov
 
@@ -61,9 +64,6 @@ Uvozila sem podatke o porokah v obliki CSV s statističnega urada. Podatke imamo
   - `stevilo` - meritev: število porok.
   
   
- 
-**Opomba**: Problem sem imela z zapisom decimalne pike pri starosti ženina in nevest, a sem ga rešila z preoblikovanjem osnovne datoteke. 
-
 
 
 ***
@@ -75,7 +75,7 @@ source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 ```
 V fazi vizualizacije sem se odločila narisati 5 grafov in zemljevid. Podatkov je manj, a so ti po mojem mnenju bolj relavantni. 
 
-Prvi graf prikazuje kako se je število istosplonih porok spreminjalo skozi leta. KOt lahko vidimo, so podatki dostopni šele od leta 2006 naprej, saj smo takrat sprejeli zakon, ki dovoljuje poročanje istospolnih parov. Število zakonov z leti narašča, kar je pričakovano, saj je to v zadnjih letih postalo nekaj naravnega. 
+Prvi graf prikazuje kako se je število istosplonih porok spreminjalo skozi leta. Kot lahko vidimo, so podatki dostopni šele od leta 2006 naprej, saj smo takrat sprejeli zakon, ki dovoljuje poročanje istospolnih parov. Število zakonov z leti narašča, kar je pričakovano, saj je to v zadnjih letih postalo nekaj naravnega. 
 Presenetil pa me je podatek, da je skoraj ves čas višje število sklenjenih zakonskih zvez med moškima, kot med ženskama saj bi sama trdila ravno obratno. 
 ```{r graf1, echo=FALSE, message=FALSE, warning=FALSE}
 print(graf1)
@@ -120,6 +120,8 @@ source("analiza/analiza.r", encoding = "UTF-8")
 
 ![](https://www.amazingscience.news/wp-content/uploads/2017/11/marriage1.jpg)
 
+
+
 Moja opažanja pri svojem projektu so sledeča:
 
 Če se najprej poglobimo v poroke med predstavnikoma različnega spola lahko pridemo do zaključkov, da je z leti porok vedno manj. Število porok je skoraj za polovico manj. Prav tako se ljudje poročajo starejši, povprečna starost ženina je narasla na 35 let, povprečna starost neveste pa na 33 let. To je verjetno posledica daljšega obdobja izobraževanja, pa tudi težje možnosti zaposlitve saj se mladi vedno kasneje odselijo od doma in začenjajo svoje življenje. 
@@ -131,7 +133,11 @@ Bolj kot zanimivost sem dodala analizo najbolj priljubljenega meseca za poroko, 
 
 Iz zemljevida sem razbrala, da je največje število porok prav v Osrednjeslovenski in Gorenjski regiji.To je logično, saj ima Osrednjeslovenska regija največ prebivalcev, po mojem mnenju pa ima Gorenjska tako veliko število porok prav zaradi svojih naravnih lepot in krajev, kot sta na primer Bled in Bohinj.
 
-Za konec bi komentirala še graf istospolnih zakonskih zvez. Število teh se v zadnjih letih povečuje, saj so takoimenovane poroke postale manj sporne kot v preteklosti. V prihodnjih letih napovedujem povečanje istospolnih porok, za razliko od zamanjšanja števila porok med različnospolnima partnerjema. 
+Nazadnje bi komentirala še graf istospolnih zakonskih zvez. Število teh se v zadnjih letih povečuje, saj so takoimenovane poroke postale manj sporne kot v preteklosti. V prihodnjih letih napovedujem povečanje istospolnih porok, za razliko od zamanjšanja števila porok med različnospolnima partnerjema. 
+
+
+Za zaključek sem naredila še napoved števila porok v prihodnjih 10 letih. Po pričakovanjih število porok z leti upada, v 10 letih naj bi se število zmanjšalo skoraj za 1000. 
+
 
 ```{r NAPOVED, echo=FALSE, message=FALSE, warning=FALSE}
 library(knitr)

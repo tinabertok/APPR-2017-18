@@ -63,14 +63,14 @@ graf4 <- ggplot(stan[stan$leto==1985,]) + aes(x = factor(leto), y = stevilo, fil
 
 graf4$labels$fill <- "Stan"
 
-# interaction sep ne dela
 
-graf5 <- ggplot(stan[stan$leto==2016,]) + aes(x = factor(leto), y = stevilo, fill = interaction(`Stan neveste`, `Stan zenina`) ,group=interaction(`Stan neveste`, `Stan zenina`)) +
+
+graf5 <- ggplot(stan[stan$leto==2016,]) + aes(x = factor(leto), y = stevilo, fill = interaction(`Stan neveste`, `Stan zenina`, sep = "-") ,group=interaction(`Stan neveste`, `Stan zenina`, sep = "-")) +
   geom_col(position = "dodge")  +
   labs( x = "Leto", y ="Število porok")
 
  
-
+graf5$labels$fill <- "Stan"
 
 
 
