@@ -18,12 +18,13 @@ imena = unique(meseci$mesec)
 povprecja = sapply(imena,function(x){ round(mean(meseci[meseci$mesec == x,"stevilo"]))})
 tabela_povprecij_meseci = data.frame(mesec=imena, povprecje = povprecja)
 
-# a damo namesto data.frame(mesec = {Jan, Feb, Mar, Apr, Maj, Jun, Jul, AVg, Sep, Okt, Nov, Dec}, povprecje = povprecja)
+
 
 #Prvi graf: Istosplone poroke 
 
 graf1 <- ggplot(istospolne) + aes(x = factor(leto), y = stevilo, fill = spol) +
-  geom_col(position = "dodge")
+  geom_col(position = "dodge") +
+  labs( x = "Leto", y ="Število")
 
 
 #Drugi graf : Število porok po mesecih
@@ -45,10 +46,11 @@ graf2 <- ggplot(tabela_povprecij_meseci) + aes(x = mesec, y = povprecje, group =
 
 #Četrti in peti graf : Zakonski stan ženina in neveste 
  
-graf4 <- ggplot(stan[stan$leto==1985,]) + aes(x = factor(leto), y = stevilo, fill = interaction(`Stan neveste`, `Stan zenina`) ,group=interaction(`Stan neveste`, `Stan zenina`)) +
+graf4 <- ggplot(stan[stan$leto==1985,]) + aes(x = factor(leto), y = stevilo, fill = interaction(`Stan neveste`, `Stan zenina`, sep = "."), interaction( sep = "."), group=interaction(`Stan neveste`, `Stan zenina`)) +
    geom_col(position = "dodge") +
   labs( x = "Leto", y ="Število porok")
 
+# interaction sep ne dela
 
 graf5 <- ggplot(stan[stan$leto==2016,]) + aes(x = factor(leto), y = stevilo, fill = interaction(`Stan neveste`, `Stan zenina`) ,group=interaction(`Stan neveste`, `Stan zenina`)) +
   geom_col(position = "dodge")  +

@@ -7,7 +7,7 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-#tu smo pobrisali shiny da nam ne dela problemov
+runtime: shiny
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE}
@@ -21,12 +21,14 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 # Izbira teme
 
+![](http://masterdjonline.com/wp-content/uploads/2015/08/bride-groom-wedding-field-photo-1.jpeg)
+
 V svojem projektu se bom osredotočila na sklenitve zakonskih zvez v Sloveniji. Analizirala bom starost ženina in neveste, njun zakonski stan ter datum poroke (ugotoviti bom poskušala v katerem mesecu se poroča največ ljudi). Podrobneje si bom ogledala tudi število porok glede na posamezne slovenske regije in to v nadaljnih fazah vizualizirala s pomočjo zemljevida. Kot dodatno spremenljivko bi lahko uporabila tudi istospolne partnerske skupnosti.
 ***
 
 # Obdelava, uvoz in čiščenje podatkov
 
-```{r uvoz, echo=FALSE, message=FALSE}
+```{r uvoz, echo=FALSE, message=FALSE,warning=FALSE}
 source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
 
@@ -64,8 +66,6 @@ Uvozila sem podatke o porokah v obliki CSV s statističnega urada. Podatke imamo
 
 
 
-
-
 ***
 
 # Analiza in vizualizacija podatkov
@@ -77,47 +77,51 @@ V fazi vizualizacije sem se odločila narisati 5 grafov in zemljevid. Podatkov j
 
 Prvi graf prikazuje kako se je število istosplonih porok spreminjalo skozi leta. KOt lahko vidimo, so podatki dostopni šele od leta 2006 naprej, saj smo takrat sprejeli zakon, ki dovoljuje poročanje istospolnih parov. Število zakonov z leti narašča, kar je pričakovano, saj je to v zadnjih letih postalo nekaj naravnega. 
 Presenetil pa me je podatek, da je skoraj ves čas višje število sklenjenih zakonskih zvez med moškima, kot med ženskama saj bi sama trdila ravno obratno. 
+```{r graf1, echo=FALSE, message=FALSE, warning=FALSE}
 print(graf1)
+```
 
 Drugi graf nam prikazuje število porok po mesecih. Ker bi bilo drugače podatkov za vsa leta preveč, sem se odločila narediti še eno tabelo v kateri sem izračunala povprečje porok za vsak mesec in nato na podlagi te tabele narisala graf. Največ ljudi se poroči prav okoli meseca ljubezni, to je maja.
 
+```{r graf2, echo=FALSE, message=FALSE, warning=FALSE}
 print(graf2)
+```
 
 Pri tretjem grafu opazujemo spreminjanje starosti ženina in neveste skozi leta. Opazimo lahko, da so se v starih časih poročali bolj mladi, z leti pa se je ta starost povišala. Zanimivo pa je, da razlika let med ženinom in nevesto skozi vsa leta ostaja enaka, to je približno 3 leta. 
 
+```{r graf3, echo=FALSE, message=FALSE, warning=FALSE}
 print(graf3)
+```
 
 
 Zadnje dva grafa nam prikazujeta poroke med ženinom in nevesto v različnih zakonskih stanih pred poroko. Odločila sem se primerjati dve najbolj oddaljeni leti, to je 1985 in 2016, ter ugotovila, da v obeh zelo prevladujejo poroke med samskima partnerjema. 
 
+```{r graf4, echo=FALSE, message=FALSE, warning=FALSE}
 print(graf4)
-
+```
+```{r graf5, echo=FALSE, message=FALSE, warning=FALSE}
 print(graf5)
-
-
+```
 Nazadnje sem naredila še zemljevid števila porok glede na slovenske regije. Tudi za ta zemljevid sem naredila posebno tabelo povprečij porok po slovenskih regijah skozi vsa leta. Nazadnje sem za lažjo predstavo dodala še par večjih slovenskih mest. Iz zemljevida je razvidno, da se največ ljudi poroči prav v Osrednjeslovenski in Gorenjski regiji.
 
+```{r zemljevid.regije, echo=FALSE, message=FALSE, warning=FALSE}
 print(zemljevid.regije)
-
-
 ```
+
 
 ***
 
 # Napredna analiza podatkov
 
-```{r analiza, echo=FALSE, message=FALSE}
+```{r analiza, echo=FALSE, message=FALSE, warning=FALSE}
 source("analiza/analiza.r", encoding = "UTF-8")
 ```
 
+![](https://www.amazingscience.news/wp-content/uploads/2017/11/marriage1.jpg)
 
 
 
 
-
-```{r graf, echo=FALSE, fig.align='center', fig.cap='Povezava med številom naselij in površino občine'}
-
-```
 
 ***
 
